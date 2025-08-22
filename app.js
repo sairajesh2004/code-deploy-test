@@ -18,17 +18,18 @@ const intializeserver = async () => {
       filename: dbpath,
       driver: sqlite3.Database,
     })
+    const PORT = process.env.PORT || 3000
 
-    app.listen(3000, () => {
-      console.log('Server running at http://localhost:3000')
+    intializeserver().then(() => {
+      app.listen(PORT, () => {
+        console.log('Server running at http://localhost:3000')
+      })
     })
   } catch (e) {
     console.log(`DB message: ${e.message}`)
     process.exit(1)
   }
 }
-
-intializeserver()
 
 app.post(`/register`, async (request, response) => {
   const {username, name, password, gender, location} = request.body
