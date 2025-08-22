@@ -6,7 +6,8 @@
     "author": "",
     "license": "ISC",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "dev": "nodemon app.js"
     },
     "dependencies": {
         "bcrypt": "5.0.1",
